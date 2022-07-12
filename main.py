@@ -4,9 +4,10 @@ from fastapi import Depends, FastAPI
 from sqlalchemy.orm import Session
 
 from api.user.schemas import UserSchema
-from library.database import SessionLocal
-# models.Base.metadata.create_all(bind=engine)
-from models.user.model import User
+from library.database import SessionLocal, engine
+from models.user.model import Base, User
+
+Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
 
