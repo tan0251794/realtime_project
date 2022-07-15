@@ -13,7 +13,7 @@ project_env.py
 */env
 
 # text note
-*.txt
+#*.txt
 
 # Jupyter Notebook
 .ipynb_checkpoints
