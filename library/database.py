@@ -7,7 +7,12 @@ password = '123456'
 host = 'localhost'
 db_name = 'my_db'
 
-engine = create_engine(f"mariadb+pymysql://{username}:{password}@{host}/{db_name}")
+# engine = create_engine(f"mariadb+pymysql://{username}:{password}@{host}/{db_name}")
+SQLALCHEMY_DATABASE_URL = "sqlite:///./db.sqlite3"
+
+engine = create_engine(
+    SQLALCHEMY_DATABASE_URL, connect_args={"check_same_thread": False}
+)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
 Base = declarative_base()
